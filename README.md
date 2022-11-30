@@ -64,3 +64,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## AppTodo
+
+Projeto de estudo das funcionalidades e facilidades do framework Laravel, serão criados tabelas no banco de dados utilizando migrates, componentes dos formulários e claro uma aplicação funcionar com CRUD na estrutra MVC do Laravel.
