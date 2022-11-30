@@ -67,4 +67,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## AppTodo
 
-Projeto de estudo das funcionalidades e facilidades do framework Laravel, serão criados tabelas no banco de dados utilizando migrates, componentes dos formulários e claro uma aplicação funcionar com CRUD na estrutra MVC do Laravel.
+Projeto de estudo das funcionalidades e facilidades do framework Laravel, serão criados tabelas no banco de dados utilizando migrates, componentes dos formulários e claro uma aplicação funcional com CRUD na estrutra MVC do Laravel.
