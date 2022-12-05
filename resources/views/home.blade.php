@@ -1,6 +1,7 @@
 <x-layout>
     <x-slot:btn>
-        <a href="#" class="btn btn-primary">Criar Tarefa</a>
+        <a href="{{route('tasks.create')}}" class="btn btn-primary">Criar Tarefa</a>
+        <a href="{{route('logout')}}" class="btn btn-primary">Sair</a>
     </x-slot:btn>
         <section class="graph">
             <div class="graph_header">
@@ -26,17 +27,30 @@
                 </select>
             </div>
             <div class="task_list">
-                @php
-                    $tasks =[
-                        ['done'=>false,'title'=>'Minha primeira tarefa','category'=>'Categoria 1'],
-                        ['done'=>true,'title'=>'Minha segunda tarefa','category'=>'Categoria 2'],
-                        ['done'=>false,'title'=>'Minha terceira tarefa','category'=>'Categoria 1'],    
-                    ]
-                @endphp
-                <x-task :data=$tasks[0]/>
-                <x-task :data=$tasks[1]/>
-                <x-task :data=$tasks[2]/>
+                @foreach($tasks as $task)
+                 <x-task :data=$task/>
+                @endforeach
             </div>
         </section>
-
+    
+    <script>
+        async function taskUpdate(element) {
+            let status = element.checked;
+            let taskId = element.dataset.id;
+            let url = '{{route('task.update')}}';
+            let rawResult = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify({status, taskId, _token: '{{ csrf_token() }}'})
+            });
+            result = await rawResult.json();
+            if(!result.success){
+                element.cheked = !status;
+                alert('Falha na atualização!');
+            }
+        }
+    </script>
 </x-layout>
