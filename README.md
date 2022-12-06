@@ -77,3 +77,5 @@ Foi criado layout básico com uso do recurso de componentes
 
 ### Controle de usuários
 Foi criado o controle de usuários logados e controle de abertura de views conforme situação do login.
+### Atualização de status de tarefa
+Foi criado uma atualização de status da tarefa utilizando-se javascript

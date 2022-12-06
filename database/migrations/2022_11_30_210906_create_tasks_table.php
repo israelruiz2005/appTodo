@@ -33,7 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::talbe('categories', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->dropForeignIdFor(User::class);   
             $table->dropForeignIdFor(Category::class);       
         });
