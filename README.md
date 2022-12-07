@@ -79,3 +79,52 @@ Foi criado layout básico com uso do recurso de componentes
 Foi criado o controle de usuários logados e controle de abertura de views conforme situação do login.
 ### Atualização de status de tarefa
 Foi criado uma atualização de status da tarefa utilizando-se javascript
+
+### Uso de OAuth com Socialite
+Além da autenticação baseada em formulário, o Laravel também fornece uma maneira simples e conveniente de autenticar com provedores OAuth usando o Laravel Socialite que suporta autenticação via Facebook, Twitter, LinkedIn, Google, GitHub, GitLab e Bitbucket.
+
+#### Passos para instalação
+```bash
+composer require laravel/socialite
+```
+
+#### Uso de API do google
+No site do Google Cloud, será necessário criar uma credencial para o aplicativo web,
+acredeço ao artigo https://www.itsolutionstuff.com/post/laravel-9-socialite-login-with-google-account-exampleexample.html que tem um passo a passo para esta configuração.
+Criada a credencial serão fornecedidos duas informações:
+- client_id
+- client_secret
+
+#### Configurando o config/services.php
+Dentro do arquivo services.php deverá ser acrescentda a chave para o google, observar que as informações são acrecentadas no arquivo .env de configurações.
+```bash
+ 'google'=> [
+        'client_id'=> env('GOOGLE_CLIENT_ID'),
+        'client_secret'=> env('GOOGLE_CLIENT_SECRET'),
+        'redirect'=>'http://localhost:8000/auth/google/callback',
+    ],
+```
+#### Configurando o .env
+```bash
+GOOGLE_CLIENT_ID=Seu_client_id_aqui_sem_aspas
+GOOGLE_CLIENT_SECRET=sua_chave_secreta_aqui_sem_aspas
+```
+#### Preparando a migração na tabela users
+```bash
+php artisan make:migration add_google_id_column
+```
+Crie o arquivo de migração, conforme o projeto, execute a migração
+```bash
+php artisan migrate
+```
+Atualize o Models\User.php
+Crie o GoogleController, conforme projeto.
+Atualize o routes\web.php com a rota para incluir a chamada ao googleController
+Atualize o login.blade.php ou arquivo equivalente de login, acrescentando
+```bash
+<a href="{{ route('auth.google') }}">
+<img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+</a>
+```
+
+

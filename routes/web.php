@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\HaltCompiler;
@@ -35,5 +36,9 @@ Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/login',[AuthController::class,'login_action'])->name('user.login_action');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('user.register_action');
-
+//Rota google Auth
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
+});
 
