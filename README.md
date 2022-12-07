@@ -90,13 +90,13 @@ composer require laravel/socialite
 
 #### Uso de API do google
 No site do Google Cloud, será necessário criar uma credencial para o aplicativo web,
-acredeço ao artigo https://www.itsolutionstuff.com/post/laravel-9-socialite-login-with-google-account-exampleexample.html que tem um passo a passo para esta configuração.
+acredeço ao artigo [Laravel 9 Socialite Login with Google Account Example](https://www.itsolutionstuff.com/post/laravel-9-socialite-login-with-google-account-exampleexample.html) que tem um passo a passo para esta configuração.
 Criada a credencial serão fornecedidos duas informações:
 - client_id
 - client_secret
 
 #### Configurando o config/services.php
-Dentro do arquivo services.php deverá ser acrescentda a chave para o google, observar que as informações são acrecentadas no arquivo .env de configurações.
+Dentro do arquivo services.php deverá ser acrescentda a chave para o google, observar que as informações reais da chave,são acrecentadas no arquivo .env de configurações. O nome da constante pode ser definido pelo desenvelvedor, aqui optei por usar GOOGLE_, GITHUB_ etc para identificar onde serão conseguidas as credenciais de login.
 ```bash
  'google'=> [
         'client_id'=> env('GOOGLE_CLIENT_ID'),
