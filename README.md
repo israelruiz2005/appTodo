@@ -117,10 +117,10 @@ Crie o arquivo de migração, conforme o projeto, execute a migração
 ```bash
 php artisan migrate
 ```
-Atualize o Models\User.php
-Crie o GoogleController, conforme projeto.
-Atualize o routes\web.php com a rota para incluir a chamada ao googleController
-Atualize o login.blade.php ou arquivo equivalente de login, acrescentando
+- Atualize o Models\User.php
+- Crie o GoogleController, conforme projeto.
+- Atualize o routes\web.php com a rota para incluir a chamada ao googleController
+- Atualize o login.blade.php ou arquivo equivalente de login, acrescentando
 ```bash
 <a href="{{ route('auth.google') }}">
 <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
